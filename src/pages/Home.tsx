@@ -1,7 +1,8 @@
 import { IonButton, IonContent, IonHeader, IonPage, IonText, IonTitle, IonToolbar } from '@ionic/react';
 import ExploreContainer from '../components/ExploreContainer';
 import React, { useState } from 'react';
-import './Home.css';
+//import './Home.css';
+//import styles from "./Home.module.css";
 
 const Home: React.FC = () => {
 
@@ -13,25 +14,21 @@ const Home: React.FC = () => {
   const sum = () => {
     setVal2(val1);
     setOption(1);
-    setNum(0);
   }
 
   const subtr = () => {
     setVal2(val1);
     setOption(2);
-    setNum(0);
   }
 
   const multi = () => {
     setVal2(val1);
     setOption(3);
-    setNum(0);
   }
 
   const div = () => {
     setVal2(val1);
     setOption(4);
-    setNum(0);
   }
 
   const c = () => {
@@ -44,9 +41,10 @@ const Home: React.FC = () => {
     switch(option){
       case 1:
         setNum(val1 + val2);
+        setNum(Num);
         break;
       case 2:
-        setNum(val1 - val2);
+        setNum(val2 - val1);
         break;
       case 3:
         setNum(val1 * val2);
@@ -55,14 +53,14 @@ const Home: React.FC = () => {
         if (val2 === 0 ){
           setNum(0.00000000000000000)
         }
-        setNum(val1 / val2);
+        setNum(val2 / val1);
         break;
       default:
         setNum(0);
         break;
     }
-    setVal1(0);
-    setVal2(0);
+    console.log(Num);
+    setVal1(val1);
   }
 
   return (
@@ -79,7 +77,7 @@ const Home: React.FC = () => {
           </IonToolbar>
         </IonHeader>
         
-        <IonText>{Num}</IonText>
+        <IonText >{Num}</IonText>
         <br />
         <IonButton onClick={()=>{setNum(1);setVal1(1)}} > 1 </IonButton>
         <IonButton onClick={()=>{setNum(2);setVal1(2)}} > 2 </IonButton>
